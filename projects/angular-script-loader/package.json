@@ -1,6 +1,22 @@
 {
   "name": "angular-script-loader",
   "version": "0.1.0",
+  "description": "An Angular library that helps in loading js script on demand",
+  "author": "Adil Shaikh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adilmas13/angular-script-loader"
+  },
+  "bugs": {
+    "url": "https://github.com/adilmas13/angular-script-loader/issues"
+  },
+  "homepage": "https://github.com/adilmas13/angular-script-loader",
+  "keywords": [
+    "angular",
+    "javascript",
+    "script",
+    "script loader"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
