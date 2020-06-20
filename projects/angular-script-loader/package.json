@@ -1,5 +1,5 @@
 {
-  "name": "angular-script-loader",
+  "name": "ng-scripter",
   "version": "0.1.0",
   "description": "An Angular library that helps in loading js script on demand",
   "author": "Adil Shaikh",
