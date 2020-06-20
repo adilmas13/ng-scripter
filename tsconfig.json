@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-script-loader": [
+        "dist/angular-script-loader"
+      ],
+      "angular-script-loader/*": [
+        "dist/angular-script-loader/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
