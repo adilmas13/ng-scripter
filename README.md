@@ -69,7 +69,7 @@ The Script model has the following attributes.
 ## Other notable functions
 1. **isScriptLoaded** : Checks if a script is loaded or not. Returns true or false 
 
-### Advantages over other script loaders
+## Advantages over other script loaders
 1. Avoids loading the same script multiple times
 2. Ability to add initial delay before loading a script
 3. Shared Observables used, so if a script is inProgress of loading and at that time another request to load that script comes in then the same instance of load is shared.
