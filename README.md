@@ -6,11 +6,11 @@ This utility will help in decreasing the initial page load time since it gives t
 ## Installation
 NPM:
 ```
-npm i ng-script-loader
+npm i ng-scripter
 ```
 Yarn:
 ```
-yarn add ng-script-loader
+yarn add ng-scripter
 ```
 
 ## Setup
