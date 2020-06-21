@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-scripter": [
+        "dist/ng-scripter"
+      ],
+      "ng-scripter/*": [
+        "dist/ng-scripter/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
