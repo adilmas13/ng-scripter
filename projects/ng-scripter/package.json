@@ -1,6 +1,6 @@
 {
   "name": "ng-scripter",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "An Angular library that helps in loading JS script on demand",
   "author": "Adil Shaikh",
   "repository": {

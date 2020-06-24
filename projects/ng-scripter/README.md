@@ -67,7 +67,9 @@ The Script model has the following attributes.
 | crossOrigin  | No  | string  | CORS |
 
 ## Other notable functions
-1. **isScriptLoaded** : Checks if a script is loaded or not. Returns true or false 
+1. **isScriptLoaded** : Checks if a script is loaded or not using the script Object. Returns true or false
+1. **isScriptLoadedViaSrc** : Checks if a script is loaded or not using the script's src. Returns true or false 
+1. **isScriptLoadedViaId** : Checks if a script is loaded or not using the script's id. Returns true or false 
 
 ## Advantages over other script loaders
 1. Avoids loading the same script multiple times
