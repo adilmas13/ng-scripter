@@ -75,4 +75,4 @@ The Script model has the following attributes.
 1. Avoids loading the same script multiple times
 2. Ability to add initial delay before loading a script
 3. Shared Observables used, so if a script is inProgress of loading and at that time another request to load that script comes in then the same instance of load is shared.
-4. Additional function to check if a script is loaded
+4. Various function to check if a script is loaded
