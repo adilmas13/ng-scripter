@@ -60,6 +60,9 @@ export class ScriptLoaderService {
   /* checks if the script is loaded or not via the script src*/
   isScriptLoadedViaSrc = (src: string) => document.querySelector(`script[src="${src}"]`) !== null;
 
+  /* checks if the script is loaded or not via the script's id*/
+  isScriptLoadedViaId = (id: string) => document.querySelector(`script[id="${id}"]`) !== null;
+
   private addToListOfObservables = (id: string, observable: Observable<any>) => this.observables.set(id, observable);
 
   private removeObservable = (id: string) => this.observables.delete(id);
