@@ -1,6 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
-import { Observable } from 'rxjs';
-import { delay, share } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { delay, share, take } from 'rxjs/operators';
 import { Script } from './models/script';
 
 @Injectable()
@@ -8,6 +8,8 @@ export class ScriptLoaderService {
 
   private observables = new Map<string, Observable<any>>();
   private renderer: Renderer2;
+
+  private watcherSubject$ = new Subject<Script>();
 
   constructor(private rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
@@ -45,6 +47,7 @@ export class ScriptLoaderService {
             observer.next(script);
             observer.complete();
             this.removeObservable(script.id);
+            this.watcherSubject$.next(script);
           };
           this.renderer.appendChild(document.head, element);
         }
@@ -52,7 +55,7 @@ export class ScriptLoaderService {
       this.addToListOfObservables(script.id, obs);
       return obs;
     }
-  };
+  }
 
   /* checks if the script is loaded or not via the script object*/
   isScriptLoaded = (script: Script) => document.querySelector(`script[src="${script.src}"]`) !== null;
@@ -66,4 +69,10 @@ export class ScriptLoaderService {
   private addToListOfObservables = (id: string, observable: Observable<any>) => this.observables.set(id, observable);
 
   private removeObservable = (id: string) => this.observables.delete(id);
+
+  // subscribe to observable that notifies when a script is loaded
+  private watch = () => this.watcherSubject$.asObservable();
+
+  // subscribe to observable that notifies only once when a script is loaded and then auto unsubscribe
+  private watchOnce = () => this.watcherSubject$.asObservable().pipe(take(1));
 }
