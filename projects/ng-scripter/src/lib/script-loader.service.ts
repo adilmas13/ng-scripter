@@ -72,7 +72,4 @@ export class ScriptLoaderService {
 
   // subscribe to observable that notifies when a script is loaded
   watch = () => this.watcherSubject$.asObservable();
-
-  // subscribe to observable that notifies only once when a script is loaded and then auto unsubscribe
-  watchOnce = () => this.watcherSubject$.asObservable().pipe(take(1));
 }

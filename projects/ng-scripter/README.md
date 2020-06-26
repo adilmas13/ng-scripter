@@ -66,6 +66,39 @@ The Script model has the following attributes.
 | defer  | No  | boolean | Defer or not (Default : false) |
 | crossOrigin  | No  | string  | CORS |
 
+
+## Usage of watch
+
+```angular2
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit, OnDestroy {
+  private watcherSubscription: Subscription;
+  ......  
+  constructor(private scriptLoaderService: ScriptLoaderService) {
+  }
+
+  ngOnInit(): void {
+      // get notified every time a new script is loaded the first time  
+      this.watcherSubscription = this.scriptLoaderService.watch().subscribe(
+        script => {
+          console.log('Watcher => ', script);
+        }
+      );
+    }
+  
+    ngOnDestroy(): void {
+      if (this.watcherSubscription) {
+        this.watcherSubscription.unsubscribe();
+      }
+    }
+
+}
+```
+
 ## Other notable functions
 1. **isScriptLoaded** : Checks if a script is loaded or not using the script Object. Returns true or false
 1. **isScriptLoadedViaSrc** : Checks if a script is loaded or not using the script's src. Returns true or false 
@@ -76,3 +109,4 @@ The Script model has the following attributes.
 2. Ability to add initial delay before loading a script
 3. Shared Observables used, so if a script is inProgress of loading and at that time another request to load that script comes in then the same instance of load is shared.
 4. Various function to check if a script is loaded
+5. Ability to get notified everytime a new script is loaded

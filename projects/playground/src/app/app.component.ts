@@ -59,11 +59,6 @@ export class AppComponent implements OnInit, OnDestroy {
         console.log('Watcher => ', script);
       }
     );
-    this.scriptLoaderService.watchOnce().subscribe(
-      script => {
-        console.log('Watcher Once => ', script);
-      }
-    );
   }
 
   ngOnDestroy(): void {
