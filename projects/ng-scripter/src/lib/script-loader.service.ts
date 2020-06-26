@@ -55,7 +55,7 @@ export class ScriptLoaderService {
       this.addToListOfObservables(script.id, obs);
       return obs;
     }
-  }
+  };
 
   /* checks if the script is loaded or not via the script object*/
   isScriptLoaded = (script: Script) => document.querySelector(`script[src="${script.src}"]`) !== null;
@@ -71,8 +71,8 @@ export class ScriptLoaderService {
   private removeObservable = (id: string) => this.observables.delete(id);
 
   // subscribe to observable that notifies when a script is loaded
-  private watch = () => this.watcherSubject$.asObservable();
+  watch = () => this.watcherSubject$.asObservable();
 
   // subscribe to observable that notifies only once when a script is loaded and then auto unsubscribe
-  private watchOnce = () => this.watcherSubject$.asObservable().pipe(take(1));
+  watchOnce = () => this.watcherSubject$.asObservable().pipe(take(1));
 }
