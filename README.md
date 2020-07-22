@@ -1,3 +1,4 @@
+<a href="https://badge.fury.io/js/ng-scripter"><img src="https://badge.fury.io/js/ng-scripter.svg" alt="npm version" height="18"></a>
 # NgScripter - One More Angular Script Loader
 
 `ng-scripter` is a simple script loader that helps in loading external JS scripts on demand. 
